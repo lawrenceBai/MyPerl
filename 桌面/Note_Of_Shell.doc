@@ -1,0 +1,132 @@
+Shell Commands:
+
+pwd:print working directory;//pwd -p :not link file but original file
+mv: rename or move;
+rm: delete // -p: not link file; -r: child directory;
+cd: enter the path
+mkdir/rmdir: build a new folder/remove a folder;
+//-p: not link file; -r: child directory; -m:set permission;
+//mkdir -m 755 newFolder
+
+touch:build a new empty file;
+cp: copy 
+//(cp folder/* dest) or (cp -r folder dest): copy all files of folder to destination
+//-i: overwrite;-u: update old file;
+ 
+man/info/--help: help
+ls:list information; //-l:detailed information; -a: all files; -d: directory itself;
+ln:link of source;//ln -s source dest
+find: find files;//find path -name PATTERN;
+sudo apt install:install software;
+
+chgrp: change group which the file or direction belongs to;
+//chgrp [-r] group_name [dirname or filename];
+chown: change user;//chown [-r] user_name [dirname or filename];
+chmod: change permission with number;
+//chmod [number] [file or dir]
+//number: r:4,w:2,x:1,rwx = 4+2+1=7; 755:rwxr-xr-x
+su:change user;// su - vbird: change to 'vbird' user;
+
+$PATH: environment variable;//set command: PATH="$PATH":/directory
+
+less: print document connent;
+df: disk capacity;//-h: easy to read;-T: file system type(ext4 or somehow )
+du: as df;//-s: all capacity;-h: easy to read;
+
+//-------------pack only one files: ///
+gzip:compress files;//-k:remain files; -d:unzip files;
+bzip2:compress files, bz2 format;// -k,-d,-z:compress;
+
+//-------------pack multi files: ///
+tar:compress files, gz/bz2 format;//compress: -jcvf bz_filename.tar.bz2 fileToZip
+//uncompress: -jxvf bz_filename.tar.bz2 -C directoryToUnzip
+//check: -jtvf bz_filename
+
+(command word)[Tab][Tab]:automatic list possible commands;
+alias: custom own shell command;//alias lm='ls -al';
+
+
+#####################################################
+### Shell Script ####
+//like perl,but variables declaration is somehow different
+//Variables
+myname=VBird #Set Value
+echo $myname #print variable
+### be able to use '' or "" to connect words
+### be able to use $name to use variables in "", but not in ''
+unset myname: cancel the variable;
+export myname: let other process use 'myname' variable;
+
+#:delete variable content;
+//echo ${path#/*kerboros/bin:}//it means from the start to the last kerboros bin
+//#:from start,the shortest str;##:from start,the longest str;
+//%:from the end,short; %%:from the end, long;
+
+
+
+
+######################
+grep: use regular expression to find content in files; if success,return strings;
+//-P: use perl regular expression;-i: ignore capital or small letter \
+//-H: print met file name; -v:lines without met; -n:number of row;
+//e.g.: grep -iH 'hello world' filename.txt ;
+cut: like grep;
+//cut -d 'split character' -f scale
+//cut -c character scale(12-);
+
+
+read: read values from input;//-p:print words; -t: time to wait;
+declare: declare variables;//-i:integer;-x:as same as export;-r:read only;
+array: var[n]=value; ${var[n]};
+###########################
+####### PIPE #############
+## it can use pipe to execute complex command ####
+find ./ -name '?ote*' | xargs cp -rt dest
+ls -al |less/more
+
+
+####### wildcard ##########
+#like perl#
+*:>=0 word
+?:1 word
+.:any word
+[]:include
+[-]:from ... to ...;//[0-9][a-z];
+[^]:exclude
+^ and $:head of line ;;; end of line
+[:alnum:]:\w
+[:alpha:]:[A-Za-z]
+[:blank:]:\s
+[:digit:]:\d
+[:space:]
+^M$:return word
+\{n,m\}:appear n to m times;
+
+#####################################
+#### shell script #########
+var=$(());//calculate equation
+test:judge file/directory/string exists or not;//
+//-n/-z:string exist/not exist
+//-e/! -e:file exist/not exist
+//-f/! -f:file exist and return type;
+//-d:directory exist and return type;
+//-a: and; two situation meets
+//-o: or; 
+
+$0:shell target
+$1/$2/$3...:option parameters
+$#:number of option
+$@:content of option
+
+
+
+
+
+
+
+
+
+
+
+
+

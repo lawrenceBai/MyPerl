@@ -1,0 +1,36 @@
+###################################
+#### mem for regular expression ###
+###just as perl, somehow different###
+
+%:after current line;//e.g. :%s///;
+s///:substitude; can also be s%%%\s+++\etc.
+/i:ignore capatical words;/g: global;
+
+perldo:use perl regular expression;//e.g. perldo s///;
+'<':selected field;
+line({expr}):line number of file position with {expr}
+//e.g.: line("."):current line number; line("'<'"):selected line number
+//add \= at the first of strings when using line({expr});
+//e.g.: :%s/^/\=\[line(".").'. '/ ## '.' follows lines means connect strings, if wanted to set "num. " mode, it must write like this example
+
+
+
+
+
+
+\d:numbers
+\w:words and numbers
+\s:space and tab
+\+ and \?: equals + and ? at perl
+*:>=0
+\{n,m}:{n,m} as perl
+^ and $: as perl
+
+
+
+
+
+
+
+
+
