@@ -37,7 +37,7 @@ dev:设备文件
  git clone git@github.com:lawrenceBai/MyPerl.git # sync from repo 
  
  or git fetch origin; git merge origin/master
- or git pull
+ or git pull origin master
 
 #### Branch manage ######
  git branch <branch name> ## create new branch
